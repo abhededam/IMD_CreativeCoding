@@ -1,0 +1,139 @@
+body{
+	background: url(bg3.jpg) no-repeat center center fixed; 
+	background-size: cover;
+	text-align: center;
+	font-family: 'Catamaran', sans-serif;
+
+}
+
+.markedText{
+	background-color: aquamarine;
+}
+
+
+h1.name{
+	font-size: 10em;
+	font-family: 'Catamaran', sans-serif;
+	color:white;
+	text-shadow: black 1px 1px 1px;
+}
+h2.subheadline{
+	font-style: none;
+	color:white;
+	font-size: 1.5em;
+	margin-left: 100px;
+}
+p.introduction{
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 750px;
+	line-height: 1.5em;
+	color: #ccc;
+	font-family: 'Catamaran', sans-serif;
+	font-size: 1.1em;
+	background: #222;
+	padding: 15px;
+}
+
+p.introduction > strong, p.introduction > a{
+	color:white;
+}
+
+#addPost{
+	background-color: rgb(246, 169, 199);
+	opacity: 0.9;
+	max-width:740px;
+	margin-left: auto;
+	margin-right: auto;
+	color: black;
+	margin-bottom: 20px;
+	text-align: left;
+	padding: 20px;
+}
+
+#addPost textarea{
+	width: 100%;
+	height: 100px;
+	margin-bottom: 10px;
+	border: 1px solid #666;
+}
+
+#addPost button{
+	width: 100px;
+	height: 35px;
+	background-color: #333;
+	color: white;
+	border: none;
+
+}
+p.bubble {
+	margin-top:10px;
+}
+.bubble {
+margin-top: 200px;
+margin-left: 100px;
+position: relative;
+width: 150px;
+height: 85px;
+padding: 20px;
+background: #FF8FFF;
+border-radius: 25px;
+}
+
+.bubble:after {
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 8px 0 8px 30px;
+border-color: transparent #FF8FFF;
+display: block;
+width: 0;
+z-index: 1;
+right: -30px;
+top: 41px;
+}
+
+.inputWrapper{
+	margin-top: 20px;
+}
+
+.inputWrapper input{
+	width: 362px;
+	line-height: 30px;
+	margin: 0;
+	border: 1px solid #666;
+}
+
+.inputWrapper input.authInput{
+	width: 366px;
+}
+
+#timeline{
+	max-width: 700px;
+	opacity: 0.8;
+	color: black;
+}
+
+.postItem{
+	margin-bottom: 20px;
+	padding: 20px;
+	background-color: rgb(128, 208, 255);
+}
+.postUsername{
+	text-align: left;	
+	font-weight: bold;
+	color: #333;
+}
+.postTime{
+	text-align: left;	
+	font-size: 0.9em;
+	font-style: italic;
+}
+.postBody{
+	margin-top: 20px;
+	text-align: left;
+}
+
+#templates{
+	display: none;
+}
