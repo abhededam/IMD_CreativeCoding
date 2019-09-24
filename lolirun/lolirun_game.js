@@ -1,13 +1,5 @@
-//ANMERKUNG!!!!!!!!!
-/* ich wollte mit html ein hintergrund lied hinzufügen,
-jedoch gab es wieder das gleiche problem, wie auch beim Lunarlander,
-also dass der Canvas einfach nicht im Browser gezeigt wird
-ich weiß nicht woran es liegt, bin der Meinung habe es genauso
-gemacht wie beim LunarLander.
-Jedoch funktioniert die musik, also einfach während man das Spiel
-spielt neben bei im browser die html datei lolirun.html oder
-lolirun_new.html laufen lassen, for the full experience!!
-viel spaß wünscht Aileen*/ 
+/* jslint esversion: 6 */
+
 var xo0 = 50;
 var xo1 = 200;
 var xo2 = 350;
@@ -23,22 +15,44 @@ var a=0;
 var b=5; //Speed
 var z=1;
 var c=0;
-var loli1 = loadImage('../lolirun/loli1.png');
-var loli2 = loadImage('../lolirun/loli2.png');
-var loli3 = loadImage('../lolirun/loli3.png');
-var loli4 = loadImage('../lolirun/loli4.png');
-var obj0_ = loadImage('../lolirun/obj0.png');
-var obj1_ = loadImage('../lolirun/obj1.png');
-var obj2_ = loadImage('../lolirun/obj2.png');
-var obj3_ = loadImage('../lolirun/obj3.png');
-var pants = loadImage('../lolirun/pantsu.png');
-var startimg = loadImage('../lolirun/startimg.png');
-var endimg = loadImage('../lolirun/endimg.png');
+
 
 //programm objekte
+    function preload() {
+        soundFormats('wav','mp3');
+        bgmusic = loadSound('Panties!.mp3');
+        loli1 = loadImage('../lolirun/loli1.png');
+        loli2 = loadImage('../lolirun/loli2.png');
+        loli3 = loadImage('../lolirun/loli3.png');
+        loli4 = loadImage('../lolirun/loli4.png');
+        obj0_ = loadImage('../lolirun/obj0.png');
+        obj1_ = loadImage('../lolirun/obj1.png');
+        obj2_ = loadImage('../lolirun/obj2.png');
+        obj3_ = loadImage('../lolirun/obj3.png');
+        pants = loadImage('../lolirun/pantsu.png');
+        startimg = loadImage('../lolirun/startimg.png');
+        endimg = loadImage('../lolirun/endimg.png');
+    }
 
     function setup()
-    {frameRate(29);}
+    {
+        frameRate(29);
+        createCanvas(700, 500);
+        bgmusic.play();
+        image(loli1,0,0);
+        image(loli2,0,0);
+        image(loli3,0,0);
+        image(loli4,0,0);
+        image(obj0_,0,0);
+        image(obj1_,0,0);
+        image(obj2_,0,0);
+        image(obj3_,0,0);
+        image(pants,0,0);
+        image(startimg,0,0);
+        image(endimg,0,0);
+
+    }
+
     function loli(xl,yl)
     { 
         if(c<=6)
