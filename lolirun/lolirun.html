@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PANTSURUN</title>
+        <script src="lolirun\p5.min.js"></script>
+    <script src="lolirun\p5setup.js"></script>
+        <style>
+        
+        </style>
+    
+    </head>
+    <body onload="startGame()">
+        <script>
+       
+        var bg_music;
+
+        function startGame() 
+        {
+            bg_music = new sound("Panties!.mp3");
+            bg_music.play();
+            myGameArea.start();
+            myGame.start();
+        }
+        
+        function sound(src) {
+            this.sound = document.createElement("audio");
+            this.sound.src = src;
+            this.sound.setAttribute("preload", "auto");
+            this.sound.setAttribute("controls", "none");
+            this.sound.style.display = "none";
+            document.body.appendChild(this.sound);
+            this.play = function()
+            {
+                this.sound.play();
+            }
+            this.stop = function()
+            {
+                this.sound.pause();
+            }
+        }    
+
+        var myGameArea = {
+            canvas : document.createElement("canvas"),
+            start : function() {
+                this.canvas.width = 600;
+                this.canvas.height = 450;
+                this.context = this.canvas.getContext("2d");
+                document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+            }
+        }
+        //VARIABLEN
+            var xo0 = 50;   //groundposition
+            var xo1 = 200;
+            var xo2 = 350;
+            var xo3 = 500;
+            var xl = 250; //playerposition
+            var yl =350;
+            var xp = 650; //pantyposition
+            var yp =140;
+            var p = 0; //panty counter
+            var x=0;    
+            var a=0;
+            var b=5; //Speed
+            var z=1;    //Start/Game/end
+            var loli1 = loadImage('../lolirun/loli1.png');
+            var obj0_ = loadImage('../lolirun/obj0.png');
+            var obj1_ = loadImage('../lolirun/obj1.png');
+            var obj2_ = loadImage('../lolirun/obj2.png');
+            var obj3_ = loadImage('../lolirun/obj3.png');
+            var pants = loadImage('../lolirun/pantsu.png');
+            var startimg = loadImage('../lolirun/startimg.png');
+            var endimg = loadImage('../lolirun/endimg.png');
+
+        //programm objekte  
+            function loli(xl,yl)
+            { 
+                image(loli1,xl,yl);
+            }
+            function obj0(xo0)
+            { 
+                image(obj0_,xo0,150);
+            }
+
+            function obj1(xo1)
+            {  
+                image(obj1_,xo1,150);
+            }
+
+            function obj2(xo2)
+            {
+            image(obj2_,xo2,150);
+            }
+            function obj3(xo3)
+            {
+                image(obj3_,xo3,150);
+            }
+            function start()
+            {
+                strokeWeight(0);
+                image(startimg,0,0);
+                fill(189,43,43);
+                rect(30,250,150,50);
+                ellipse(30,275,20,50);
+                ellipse(180,275,20,50);
+                fill(255);
+                textSize(30);
+                text("START",57,288);
+            }
+            function end()
+            {
+                strokeWeight(0);
+                image(endimg,0,0);
+                fill(189,43,43);
+                rect(110,290,380,80);
+                fill(255);
+                textSize(40);
+                text("RETURN TO MENU",120,345);
+                fill(189,43,43);
+                text("PANTSU'S: "+p,150,235);
+            }
+            function pantsu(xp,yp)
+            {
+                image(pants,xp,yp-50);
+            }
+
+
+        //Untergrund, random sporning
+            var ground_A = [obj1,obj1,obj1,obj1,obj1];
+            function ground_F()
+            {
+                for(var i = 0; i < ground_A.length; i++)
+                {
+                    x=i*200-a;
+                    
+                    ground_A[i](x);
+
+                }
+                if(x+150<650)
+                {
+                    if(r<6)
+
+                    {
+                        ground_A.push(obj0);
+                    } else if(r<51)
+                    {
+                        ground_A.push(obj1);
+                    } else if(r<76)
+                    {
+                        ground_A.push(obj2);
+                    } else if(r<101)
+                    {
+                        ground_A.push(obj3);
+                    }
+                }
+                if(x-(ground_A.length-3)*200<0)
+                {
+                    a -= 200;
+                    ground_A.shift();
+                }
+            
+            }
+
+        //falling
+            function fall()
+            {
+                loli(xl,yl-150);
+                var color1 =get(xl,yl);
+                var color2 =get(xl+100,yl);
+                var color3 =get(xl+100,yl-25);
+                if (color1[0]==250 && color2[0]==250 && color1[1]==250 && color2[1]==250 && color1[2]==250 && color2[2]==250)
+                {
+                    yl+=10;
+                }
+                if (color3[0]==51 && color3[1]==51 && color3[2]==51)
+                {
+                    xl=xl-b;
+                } 
+                if(yl>=600)
+                {
+                    z=3;
+                }else if(yl<0 || yl>440)
+                {
+                    yl+=30;
+                }
+            }
+        //jumping
+            function mouseClicked()
+            {
+                for(var j = 0; j < 100; j++)
+                {
+                    yl--;
+                }
+            }
+        //Pantsuspornig
+                function pantsu_F()
+                {
+                    var color4 =get(xp+25,yp+1);
+                    pantsu(xp,yp);
+                    xp=xp-b;
+                    if (xp<0 )
+                    {
+                        xp=650;
+                        yp=90; 
+                    }else if (xl +100 > xp + 50 &&
+                        xl > xp  &&
+                        yl > yp - 50 &&
+                        yl - 150  < yp)
+                        {
+                            xp=650;
+                            yp=90;
+                            p++;
+                        }
+                    if (color4[0]==250 && color4[1]==250 && color4[2]==250)
+                    {
+                        for(var k = 0; k < 20; k++)
+                        {
+                            yp+=4;
+                            
+                        }
+                    }else if(color4[0]==94 && color4[1]==94 && color4[2]==94)
+                    {
+                        if(yp>440)
+                        {
+                            yp+=50;
+                        } else if(yp>340)
+                        {
+                            yp=349;
+                        } else if(yp>240)
+                        {
+                            yp=250;
+                        } else if(yp>150)
+                        {
+                            yp=149;
+                        } 
+                    }     
+                }
+
+        function myGame()
+        {
+            function draw()
+            {
+                clear();
+                if(z==1)
+                {
+                    x=0;
+                    a=0;
+                    ground_A = [obj1,obj1,obj1,obj1,obj1];
+                    xl = 250;
+                    yl =350;
+                    start();
+                    if (mouseIsPressed && mouseX>=30 && mouseX<=180 && mouseY>=250 && mouseY<=300)
+                    {
+                        z=2;
+                    }
+                }
+                if(z==2)
+                {
+                    background(250);
+                    fill(168, 43, 43);
+                    textSize(50);
+                    text(p,550,70);
+                    a=a+b;
+                    r=round(random(1,100));
+                    ground_F();
+                    pantsu_F();
+                    fall();
+                    if(xl+100<=0)
+                    {
+                        z=3;
+                    }
+                    if(p==5)
+                    {
+                        b=7;
+                    }else if(p==10)
+                    {
+                        b=9;
+                    }else if(p==15)
+                    {
+                        b=11;
+                    }else if(p==20)
+                    {
+                        b=13;
+                    }else if(p==25)
+                    {
+                        b=16;
+                    }else if(p==30)
+                    {
+                        b=19;
+                    }else if(p==40)
+                    {
+                        b=22;
+                    }
+                }
+                if(z==3)
+                {
+                    end();
+                    if (mouseIsPressed && mouseX>=110 && mouseX<=290 && mouseY>=290 && mouseY<=370)
+                    {
+                        z=1;
+                    }
+                }
+            }
+        }
+        </script>
+
+    </body>
+
+</html>

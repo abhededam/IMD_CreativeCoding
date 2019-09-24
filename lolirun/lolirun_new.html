@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PANTSURUN</title>
+    <script src="lolirun\p5.min.js"></script>
+    <script src="lolirun\p5setup.js"></script>
+    <script src="lolirun\lolirun_game.js"></script>
+    
+    <style>
+        body {
+          
+
+            padding: 0;
+            margin 0;
+        }
+    </style>
+  </head>
+
+  <body onload="startGame()">
+      <script>
+        var bg_music;
+
+function startGame() 
+{
+    bg_music = new sound("Panties!.mp3");
+    bg_music.play();
+    myGameArea.start();
+    myGame.start();
+}
+
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function()
+    {
+        this.sound.play();
+    }
+    }    
+    </script>
+    
+  >hier Spiel einsetzen<
+  </body>
+</html>
