@@ -1,6 +1,8 @@
-<p>This is our secound Semester project to the Topic "Simulations" <br>
-It is supposed to be a Traffic/Street simulator where you can edit the street at street.html by holding the left mouse button and dragging.<br>
-My part in this project was all of the javascript. So the html might be a bit botchered, maybe i fix that in the future<p>
+    This is our secound Semester project to the Topic "Simulations" 
+    It is supposed to be a Traffic/Street simulator where you can edit the street (@street.html) 
+    by holding the left mouse button and dragging.
+    My part in this project was all of the javascript. 
+    So the html might be a bit botchered, maybe i fix that in the future
 
 
 
