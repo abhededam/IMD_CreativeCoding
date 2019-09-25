@@ -2,7 +2,7 @@
 
 #### Here you can find some interesting stuff I did in University. 
 
-/bongocat     <br>tinteractive bongocat meme <br><br>
+/bongocat     <br>interactive bongocat meme <br><br>
 /LunarLander  <br>Lunar Lander minigame<br><br>
 /Messenger    <br>Webbased Messenger for Otakus<br><br>
 /ML-Elective     <br>mostly smaller python project to study Machine Lerning<br><br>
