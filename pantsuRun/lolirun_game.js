@@ -19,19 +19,19 @@ var c=0;
 
 //programm objekte
     function preload() {
-        soundFormats('wav','mp3');
+        soundFormats('mp3');
         bgmusic = loadSound('Panties!.mp3');
-        loli1 = loadImage('../lolirun/loli1.png');
-        loli2 = loadImage('../lolirun/loli2.png');
-        loli3 = loadImage('../lolirun/loli3.png');
-        loli4 = loadImage('../lolirun/loli4.png');
-        obj0_ = loadImage('../lolirun/obj0.png');
-        obj1_ = loadImage('../lolirun/obj1.png');
-        obj2_ = loadImage('../lolirun/obj2.png');
-        obj3_ = loadImage('../lolirun/obj3.png');
-        pants = loadImage('../lolirun/pantsu.png');
-        startimg = loadImage('../lolirun/startimg.png');
-        endimg = loadImage('../lolirun/endimg.png');
+        loli1 = loadImage('loli1.png');
+        loli2 = loadImage('loli2.png');
+        loli3 = loadImage('loli3.png');
+        loli4 = loadImage('loli4.png');
+        obj0_ = loadImage('obj0.png');
+        obj1_ = loadImage('obj1.png');
+        obj2_ = loadImage('obj2.png');
+        obj3_ = loadImage('obj3.png');
+        pants = loadImage('pantsu.png');
+        startimg = loadImage('startimg.png');
+        endimg = loadImage('endimg.png');
     }
 
     function setup()
