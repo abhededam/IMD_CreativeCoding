@@ -4,6 +4,9 @@ var f = 255;
 var p = 0; 
 
 //strokeWeight(0);
+function setup() {
+    createCanvas(650,500);
+}
 
 function fairy(y)
 {
