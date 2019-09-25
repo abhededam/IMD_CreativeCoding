@@ -1,6 +1,5 @@
 /* jslint esversion: 6 */
 
-var background = loadImage('png/nah_ansicht.png'); // Hintergrundbild laden
 
 var timer1 = setInterval(trafficSpawning1, 100); // alle hundert Millisec wird trafficSpawning1() aufgerufen
 var timer2 = setInterval(trafficSpawning2, 500); // alle hundert Millisec wird trafficSpawning2() aufgerufen
@@ -10,12 +9,15 @@ var trafficArray2 = [];
 var trafficArray3 = [];
 var trafficSizes = [15, 18, 10, 8];					//radiuse der verschiedenen Fahrzeuge
 
-
+function preload() {
+	bg = loadImage('png/nah_ansicht.png'); // Hintergrundbild laden
+}
 
 function setup() 
 {
 	createCanvas(1920, 1080);
 	frameRate(30);
+	image(bg,0,0);
 }
 
 class Traffic 
@@ -426,7 +428,7 @@ function moveTraffic()
 function draw() 
 {
 	clear();
-	image(background,0,0);
+	image(bg,0,0);
 	loadPixels();
 	moveTraffic();
 }
