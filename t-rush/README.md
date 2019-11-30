@@ -4,7 +4,7 @@
     My part in this project was all of the javascript. 
     So the html might be a bit botchered, maybe i fix that in the future
 
-https://abhededam.github.io/2019_WebsitePortfolio/t-rush/
+https://abhededam.github.io/Portfolio/t-rush/
 
 # t.rush-simulation
 
